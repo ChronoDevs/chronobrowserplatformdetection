@@ -21,6 +21,12 @@ composer require chronostep/chronobrowserplatform
 
 ## How to use
 
+Include this to the top of your class
+
+```
+use BPDetect;
+```
+
 Just call the following command
 
 ```
