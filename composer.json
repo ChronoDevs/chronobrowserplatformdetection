@@ -17,6 +17,9 @@
     "require": {},
     "extra": {
         "laravel": {
+            "providers": [
+                "Chronostep\\Chronobrowserplatform\\BPDetectServiceProvider"
+            ],
             "aliases": {
                 "BPDetect": "Chronostep\\Chronobrowserplatform\\Facades\\BPDetect"
             }
