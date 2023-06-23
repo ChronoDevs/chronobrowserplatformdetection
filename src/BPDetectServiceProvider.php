@@ -5,7 +5,7 @@ namespace Chronostep\Chronoslack;
 use Illuminate\Support\ServiceProvider;
 use Chronostep\Chronobrowserplatform\Services\BrowserPlatformDetection;
 
-class SlackLogServiceProvider extends ServiceProvider
+class BPDetectServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
