@@ -1,10 +1,10 @@
 <?php
 
-namespace Chronostep\Chronobrowserplatform\Support;
+namespace Chronostep\Chronobrowserplatform\Services;
 
 class BrowserPlatformDetection
 {
-    public function detect()
+    public static function detect()
     {
         $browser = '';
         $platform = '';

@@ -1,10 +1,9 @@
 <p align="center"><a href="https://github.com/ChronoDevs" target="_blank"><img src="https://avatars.githubusercontent.com/u/48752111?v=4" width="100"></a></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://github.com/ChronoDevs/chronobrowserplatformdetection"><img src="https://img.shields.io/badge/status-active-success.svg" alt=""></a>
+<a href="https://packagist.org/packages/chronostep/chronobrowserplatform"><img src="https://img.shields.io/badge/version-dev_master-blue" alt="Latest Stable Version"></a>
+<a href="https://github.com/ChronoDevs/chronobrowserplatformdetection/blob/main/LICENSE"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
 ## Chrono Browser Platform Detection
@@ -22,4 +21,17 @@ composer require chronostep/chronobrowserplatform
 
 ## How to use
 
-Import Package to your controller or anywhere in your page
+Just call the following command
+
+```
+$bpresult = BPDetect::detect();
+```
+
+Following command will return an array that looks like this.
+```
+array:3 [▼
+  "browser" => "Google Chrome"
+  "platform" => "Windows"
+  "device" => "Not a Mobile"
+]
+```

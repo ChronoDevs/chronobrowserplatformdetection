@@ -14,5 +14,12 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "BPDetect": "Chronostep\\Chronobrowserplatform\\Facades\\BPDetect"
+            }
+        }
+    }
 }
