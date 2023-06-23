@@ -1,6 +1,6 @@
 <?php
 
-namespace Chronostep\Chronoslack;
+namespace Chronostep\Chronobrowserplatform;
 
 use Illuminate\Support\ServiceProvider;
 use Chronostep\Chronobrowserplatform\Services\BrowserPlatformDetection;
