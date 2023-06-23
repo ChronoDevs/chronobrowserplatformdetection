@@ -1,9 +1,9 @@
 <?php
 
-namespace Chronostep\Chronoslack\Facades;
+namespace Chronostep\Chronobrowserplatform\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Chronostep\Chronobrowserplatform\Services;
+use Chronostep\Chronobrowserplatform\Services\BrowserPlatformDetection;
 
 class BPDetect extends Facade
 {
