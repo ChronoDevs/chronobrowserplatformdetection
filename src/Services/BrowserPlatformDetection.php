@@ -55,12 +55,14 @@ class BrowserPlatformDetection
 
         // Detect IP address (handles proxy and fallback)
         $ip = self::getClientIp();
+        $public_ip = self::getPublicIpViaApi();
 
         return [
             'browser' => $browser,
             'platform' => $platform,
             'device' => $deviceType,
-            'ip' => $ip
+            'ip' => $ip,
+            'public_ip' => $public_ip
         ];
     }
 
@@ -79,5 +81,23 @@ class BrowserPlatformDetection
         }
 
         return $_SERVER['REMOTE_ADDR'] ?? 'Unknown IP';
+    }
+
+    private static function getPublicIpViaApi(): string
+    {
+        // Fastest option
+        $ip = @file_get_contents('https://api.ipify.org');
+
+        if ($ip && filter_var($ip, FILTER_VALIDATE_IP)) {
+            return $ip;
+        }
+
+        // Backup method using cURL
+        $ch = curl_init('https://api.ipify.org');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $ip = curl_exec($ch);
+        curl_close($ch);
+
+        return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : 'Unknown IP';
     }
 }
