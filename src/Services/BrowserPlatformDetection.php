@@ -44,43 +44,41 @@ class BrowserPlatformDetection
                 $deviceType .= ' (iPhone)';
             } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== false) {
                 $deviceType .= ' (Android)';
-            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Windows Phone') !== false) {
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Windows Phone') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'IEMobile') !== false) {
                 $deviceType .= ' (Windows Phone)';
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') !== false) {
+                $deviceType .= ' (iPad)';
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mobi') !== false) {
+                $deviceType .= ' (Opera Mobile)';
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'KaiOS') !== false) {
+                $deviceType .= ' (KaiOS)';
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'BB10') !== false) {
+                $deviceType .= ' (BlackBerry)';
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'webOS') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'Palm') !== false) {
+                $deviceType .= ' (Palm/webOS)';
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Symbian') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'Series60') !== false) {
+                $deviceType .= ' (Symbian)';
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'MeeGo') !== false) {
+                $deviceType .= ' (MeeGo)';
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Tizen') !== false) {
+                $deviceType .= ' (Tizen)';
+            } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Ubuntu Touch') !== false) {
+                $deviceType .= ' (Ubuntu Touch)';
             } else {
                 $deviceType .= ' (Unknown Phone)';
             }
         } else {
-            $deviceType = 'Not a Mobile';
+            $deviceType = '';
         }
 
-        // Detect IP address (handles proxy and fallback)
-        $ip = self::getClientIp();
         $public_ip = self::getPublicIpViaApi();
 
         return [
             'browser' => $browser,
             'platform' => $platform,
             'device' => $deviceType,
-            'ip' => $ip,
             'public_ip' => $public_ip
         ];
-    }
-
-    private static function getClientIp(): string
-    {
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            return $_SERVER['HTTP_CLIENT_IP'];
-        }
-
-        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            return explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0];
-        }
-
-        if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) { // for Cloudflare
-            return $_SERVER['HTTP_CF_CONNECTING_IP'];
-        }
-
-        return $_SERVER['REMOTE_ADDR'] ?? 'Unknown IP';
     }
 
     private static function getPublicIpViaApi(): string
