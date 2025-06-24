@@ -27,13 +27,13 @@ class BrowserPlatformDetection
 
         // Detect platform
         if (strpos($_SERVER['HTTP_USER_AGENT'], 'Windows') !== false) {
-            $platform = 'Windows';
+            $platform = '(Windows)';
         } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Linux') !== false) {
-            $platform = 'Linux';
+            $platform = '(Linux)';
         } elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Mac') !== false) {
-            $platform = 'macOS';
+            $platform = '(macOS)';
         } else {
-            $platform = 'Unknown Platform';
+            $platform = '';
         }
 
         // Detect mobile device
@@ -68,7 +68,7 @@ class BrowserPlatformDetection
                 $deviceType .= ' (Unknown Phone)';
             }
         } else {
-            $deviceType = '';
+            $deviceType = 'Desktop '.$platform;
         }
 
         $public_ip = self::getPublicIpViaApi();
