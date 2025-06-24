@@ -39,5 +39,6 @@ array:3 [▼
   "browser" => "Google Chrome"
   "platform" => "Windows"
   "device" => "Not a Mobile"
+  "public_ip" => "43.226.6.160"
 ]
 ```
