@@ -38,7 +38,7 @@ Following command will return an array that looks like this.
 array:3 [▼
   "browser" => "Google Chrome"
   "platform" => "Windows"
-  "device" => "Not a Mobile"
+  "device" => ""
   "public_ip" => "43.226.6.160"
 ]
 ```
